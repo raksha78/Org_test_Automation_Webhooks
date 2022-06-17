@@ -1,0 +1,19 @@
+resources:
+  - name: test
+    type: GitRepo
+    configuration:
+      gitProvider: raksha78_github
+      path: raksha78/Org_test_Automation_Webhooks
+      branches:
+        include: rakshitha
+pipelines:
+  - name: test
+    steps:
+      - name: step_1
+        type: Bash
+        configuration:
+          inputResources:
+            - name: test
+        execution:
+           onExecute:
+             - echo 'hi'
